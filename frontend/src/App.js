@@ -1,9 +1,12 @@
-import "./App.css";
-import EmptyCart from "./components/cartemptypage";
-import PriceDetails from "./components/priceDetails";
+import './App.css';
+import Productdetailspage from './components/Productdetailspage';
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <Productdetailspage />
+    </div>
+  );
 }
 
 export default App;
