@@ -15,9 +15,13 @@ app.use(cors())
 app.use(bodyParser.json({extended:true}))
 app.use(bodyParser.urlencoded({extended:true}))
 app.use('/',Router)
+
 const port=process.env.PORT || 8000
+
 Connection(UserName,Password);
+
+
 app.listen(port,()=>{
-    console.log(`Listining at ${port}`)
+    console.log(`Running on port ${port}`)
 })
 // DefaultData();
