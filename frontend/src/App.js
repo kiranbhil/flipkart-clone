@@ -1,10 +1,10 @@
 import './App.css';
-import Productdetailspage from './components/Productdetailspage';
+import AllRoutes from './Routes/AllRoutes';
 
 function App() {
   return (
     <div>
-      <Productdetailspage />
+      <AllRoutes/>
     </div>
   );
 }
