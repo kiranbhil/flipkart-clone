@@ -1,15 +1,15 @@
-import "./App.css";
-import Productdetailspage from "./components/Productdetailspage";
+import AllRoutes from './Routes/AllRoutes';
 import NavButtom from "./components/Navbar/NavBottom";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div>
-      <Details /> 
+
       <Navbar/>
       <NavButtom/>
-      <Productdetailspage />
+       <AllRoutes/>
+
     </div>
   );
 }
