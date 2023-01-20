@@ -1,10 +1,15 @@
-import './App.css';
 import AllRoutes from './Routes/AllRoutes';
+import NavButtom from "./components/Navbar/NavBottom";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div>
-      <AllRoutes/>
+
+      <Navbar/>
+      <NavButtom/>
+       <AllRoutes/>
+
     </div>
   );
 }

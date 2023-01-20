@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Box, Button, Center,Flex,Image, Link, Popover, PopoverContent, PopoverTrigger, Select, Slider, Text} from "@chakra-ui/react"
+import {Box, Button, Center,Flex,FormControl,Image, Link, Popover, PopoverContent, PopoverTrigger, Select, Slider, Text} from "@chakra-ui/react"
 import "../css/Productdetailspage.css"
 import Carousel from './Crousal'
 let data=[
@@ -13,7 +13,19 @@ let data=[
 ]
 
 const Productdetailspage = () => {
- 
+
+  // $.getJSON("https://api.postalpincode.in/pincode/" + pin, function (data) {
+  //   createHTML(data);
+  // })
+
+  const handlesubmit=(e)=>
+  {
+    console.log(e.target.value)
+  }
+  const handlechange=(e)=>
+  {
+    console.log(e.target.value)
+  }
   return (
     <>
     <Center>
@@ -43,15 +55,16 @@ const Productdetailspage = () => {
         <Text margin={'20px'}>subtitle</Text>
         <Text margin={'20px'} color={"green"}>Special price</Text>
         <Flex><Text marginLeft={'20px'} fontWeight={'bold'}>price</Text><Text marginLeft={'20px'} textDecorationLine={'line-through'}>original price</Text></Flex>
-        <Text color={'red'} margin={'20px'}>discount</Text>
+        <Text color={'green'} margin={'20px'}>discount</Text>
         <Text margin={'20px'} fontSize={'14px'}>Ratings -</Text>
-        <Select className='option' marginLeft={'20px'} placeholder='Choose Size' >
+        <select className='option' style={{margin:"20px"}} >
+        <option>Choose Size</option>
         <option>6</option>
         <option>7</option>
         <option>8</option>
         <option>9</option>
         <option>10</option>
-        </Select>
+        </select>
         <Popover>
         <PopoverTrigger>
         <Text margin={'20px'}>{'> Size Chart'}</Text>
@@ -60,7 +73,17 @@ const Productdetailspage = () => {
         <Image  />
         </PopoverContent>
         </Popover>
-        
+        <FormControl margin="20px" onSubmit={handlesubmit} >
+            <div class="form-group">
+              <label for="text">Enter Indian Pincode</label>
+              <br />
+              <input type="text" class="form-control" className="text" placeholder="Enter Pincode" maxlength="6"
+                onkeypress="return event.charCode >= 48 && event.charCode <= 57" onChange={handlechange} />
+            </div>
+            <Button className="submit" type="submit" >
+              Submit
+            </Button>
+          </FormControl>
         <Text margin={'20px'}>Free Shipping avaliable</Text>
         <Box marginLeft={'20px'}>
           <Text >Product Material Details</Text>
