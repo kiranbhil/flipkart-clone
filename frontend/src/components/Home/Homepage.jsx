@@ -14,29 +14,29 @@ const BoxWrapper = styled(Box)`
   padding: 10px 10px;
 `;
 
-const getData = () => {
-  axios
-  .get("http://localhost:8000/products")
-  .then(data => console.log(data.data))
-  .catch(error => console.log(error));
-  };
+// const getData = () => {
+//   axios
+//   .get("http://localhost:8000/products")
+//   .then(data => console.log(data.data))
+//   .catch(error => console.log(error));
+//   };
 
 
 function Homepage() {
-  const [data,setData] = useState([]);
+  // const [data,setData] = useState([]);
 
-  useEffect(() => {
-    setData(getData())
-  }, []);
+  // useEffect(() => {
+  //   setData(getData())
+  // }, []);
 
-  console.log(data)
+  // console.log(data)
 
   return (
     <div>
         <BoxWrapper>
             <Banner />
             <BannerMid />
-            
+            <Banner/>
             {/* <MidSlide products={data} title="Deal of the Day" timer={false} /> */}
             {/* <Slide products={data} title="Discounts for you" timer = {false} /> */}
         </BoxWrapper>
