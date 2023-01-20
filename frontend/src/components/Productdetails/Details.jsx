@@ -6,14 +6,15 @@ import { getProductDetails } from '../../redux/actions/ProductAction'
 
 
 const Details = () => {
+  
 const dispatch=useDispatch()
 const {id}=useParams()
-const {loading,product}= useSelector(state=> state.getProductDetails)
+// const {loading,product}= useSelector(state=> state.getProductDetails)
 
   useEffect(()=>
   {
     dispatch(getProductDetails(id))
-  },[dispatch,id,product,loading])
+  },[dispatch,id])
 
   return (
     <div>Details</div>
