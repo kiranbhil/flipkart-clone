@@ -5,11 +5,12 @@ import {
   getProductDetailsReducer,
   getProductReducer,
 } from "./reducer/productReducer";
+// import  cartReducer  from "./reducers/cartReducer";
 
 
 
 const reducer = combineReducers({
-  cart: cartReducer,
+  // cart: cartReducer,
   getProducts: getProductReducer,
   getProductDetails: getProductDetailsReducer,
 });
