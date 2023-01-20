@@ -1,13 +1,15 @@
-import './App.css';
-import Productdetailspage from './components/Productdetailspage';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Details from './components/Details';
+import "./App.css";
+import Productdetailspage from "./components/Productdetailspage";
+import NavButtom from "./components/Navbar/NavBottom";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div>
-      {/* <Productdetailspage /> */}
-            <Details /> 
+      <Details /> 
+      <Navbar/>
+      <NavButtom/>
+      <Productdetailspage />
     </div>
   );
 }
