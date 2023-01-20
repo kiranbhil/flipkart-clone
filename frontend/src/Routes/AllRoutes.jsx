@@ -1,8 +1,8 @@
 import Homepage from '../components/Home/Homepage';
 import Fashion from '../components/Fashion/Fashion';
-import Productdetailspage from '../components/Productdetailspage';
 import { Route, Routes } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react';
+import Details from '../components/Productdetails/Details';
 
 
 const AllRoutes = () => {
@@ -12,7 +12,7 @@ const AllRoutes = () => {
         <Routes>
           <Route path='/' element={<Homepage />}></Route>
           <Route path='/fashion' element={<Fashion />}></Route>
-          <Route path='/productdetail' element={<ChakraProvider> <Productdetailspage/></ChakraProvider>}></Route>
+          <Route path='/product/:id' element={<ChakraProvider> <Details /></ChakraProvider>}></Route>
         </Routes>
       </div>
     )

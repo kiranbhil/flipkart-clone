@@ -4,8 +4,7 @@ import thunk from "redux-thunk";
 import {
   getProductDetailsReducer,
   getProductReducer,
-} from "./reducers/productReducer";
-import  cartReducer  from "./reducers/cartReducer";
+} from "./reducer/productReducer";
 
 
 

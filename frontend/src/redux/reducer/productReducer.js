@@ -26,5 +26,3 @@ export const getProductDetailsReducer = (state = { product: {} }, action) => {
       return state;
   }
 };
-
-export default getProductReducer;
