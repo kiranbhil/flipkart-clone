@@ -14,19 +14,20 @@ const BoxWrapper = styled(Box)`
   padding: 10px 10px;
 `;
 
-const getData = () => {
-  axios
-  .get("http://localhost:8000/products")
-  .then(data => console.log(data.data))
-  .catch(error => console.log(error));
-  };
 
 
 function Homepage() {
   const [data,setData] = useState([]);
 
+  const getData = () => {
+    axios
+    .get("http://localhost:8000/products")
+    .then(data => setData(data.data))
+    .catch(error => console.log(error));
+    };
+  
   useEffect(() => {
-    setData(getData())
+    getData()
   }, []);
 
   console.log(data)
@@ -36,9 +37,13 @@ function Homepage() {
         <BoxWrapper>
             <Banner />
             <BannerMid />
-            
-            {/* <MidSlide products={data} title="Deal of the Day" timer={false} /> */}
-            {/* <Slide products={data} title="Discounts for you" timer = {false} /> */}
+            <MidSlide products={data} title="Deal of the Day" timer={false} />
+            <Slide products={data} title="Discounts for you" timer = {false} />
+            <Slide products={data} title="Top Selection"  timer = {false} />
+          <Slide products={data} title="Trending Offers" timer = {false} />
+          <Slide products={data} title="Season's top picks" timer = {false} />
+          <Slide products={data} title="Top Deals on Accessories" timer = {false} />
+
         </BoxWrapper>
     </div>
   )
