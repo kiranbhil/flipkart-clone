@@ -5,6 +5,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import Products from '../components/Product/Product';
 import Productdetailspage from '../components/Productdetails/Productdetailspage';
 import EmptyCart from '../components/cart/cartemptypage';
+import Details from '../components/Productdetails/Details';
 
 
 const AllRoutes = () => {
