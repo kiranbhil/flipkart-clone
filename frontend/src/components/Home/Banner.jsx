@@ -34,7 +34,7 @@ const Image = styled("img")(({ theme }) => ({
 
 const responsive = {
   desktop: {
-    breakpoint: { max: 5000, min: 2024 },
+    breakpoint: { max: 3000, min: 1024 },
     items: 1,
   },
   tablet: {
@@ -46,7 +46,6 @@ const responsive = {
     items: 1,
   },
 };
-
 
 const Banner = () => {
   return (
@@ -67,7 +66,6 @@ const Banner = () => {
         <Image src={banner.url} alt="banner" />
       ))}
     </Carousel>
-    
   );
 };
 
