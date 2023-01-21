@@ -1,4 +1,4 @@
-import * as actionType from "../constants/productConstant";
+import * as actionType from "../constant/productConstant";
 
 export const getProductReducer = (state = { products: [] }, action) => {
   switch (action.type) {
@@ -26,5 +26,3 @@ export const getProductDetailsReducer = (state = { product: {} }, action) => {
       return state;
   }
 };
-
-export default getProductReducer;

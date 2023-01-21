@@ -6,7 +6,6 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import Slider from "react-slick";
-import { Link } from "react-router-dom";
 
 const settings = {
   dots: false,
@@ -72,9 +71,9 @@ export default function Carousel({ data }) {
         >
           <Slider {...settings} ref={(slider) => setSlider(slider)}>
             {data.map((ele) => (
-                <Box  height={"100%"} width={"100%"} >
-                  <Box  height={"100%"} w="100%">
-                    <Image  height="100%" w="100%" src={ele} />
+                <Box key={ele.id}  height={"100%"} width={"100%"} >
+                  <Box  key={ele.id} height={"100%"} w="100%">
+                    <Image key={ele.id}  height="100%" w="100%" src={ele} />
                   </Box>
                 </Box>
             ))}

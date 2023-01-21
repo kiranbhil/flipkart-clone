@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import {Box, Button, Center,Flex,FormControl,Image, Link, Popover, PopoverContent, PopoverTrigger, Select, Slider, Text} from "@chakra-ui/react"
-import "../css/Productdetailspage.css"
+import React  from 'react'
+import {Box, Button, Center,Flex,FormControl,Image, Popover, PopoverContent, PopoverTrigger, Text} from "@chakra-ui/react"
+import "../../css/Productdetailspage.css"
 import Carousel from './Crousal'
+// import axios from "axios"
 let data=[
   "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/b/q/u/-original-imaghvb3rb8ucbuq.jpeg?q=70",
   "https://rukminim1.flixcart.com/image/832/832/kjhgzgw0-0/shoe/a/j/j/195110-11-puma-gray-violet-white-original-imafzfgffzxb6zhq.jpeg?q=70",
@@ -11,12 +12,21 @@ let data=[
   "https://rukminim1.flixcart.com/image/832/832/kjhgzgw0-0/shoe/a/l/x/195110-11-puma-gray-violet-white-original-imafzfgfebg49ava.jpeg?q=70",
   "https://rukminim1.flixcart.com/image/832/832/kjhgzgw0-0/shoe/j/i/e/195110-11-puma-gray-violet-white-original-imafzfgfbdnkhqfv.jpeg?q=70"
 ]
-
+// const getData=()=>
+// {
+//   axios.get("http:localhost:8000/products")
+//   .then(ele=>console.log(ele.data))
+//   .catch(err=>console.log(err))
+// }
+// getData()
 const Productdetailspage = () => {
-
+// const [data,setData]=useState([])
   // $.getJSON("https://api.postalpincode.in/pincode/" + pin, function (data) {
   //   createHTML(data);
   // })
+// useEffect(()=>{
+//   setData(getData())
+// })
 
   const handlesubmit=(e)=>
   {

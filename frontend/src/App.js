@@ -8,7 +8,7 @@ function App() {
     <div>
       <Navbar/>
       <NavButtom/>
-      <Productdetailspage />
+       <AllRoutes/>
     </div>
   );
 }
