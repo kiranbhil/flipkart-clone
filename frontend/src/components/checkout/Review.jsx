@@ -5,6 +5,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Grid from "@mui/material/Grid";
 import { Box } from "@mui/system";
+import axios from "axios";
+import { useState } from "react";
 
 const products = [
   {
@@ -32,7 +34,6 @@ const products = [
 
 export default function Review() {
   const data = JSON.parse(localStorage.getItem("userInfo"));
-  console.log(data);
   const payments = [
     { name: "Card type", detail: data.cardname },
     {
@@ -43,23 +44,49 @@ export default function Review() {
     { name: "Expiry date", detail: data.exp_date },
   ];
 
+  const [product, setProduct] = useState([]);
+
+  React.useEffect(() => {
+    axios
+      .get("http://localhost:8000/cartproduct")
+      .then((res) => setProduct(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  var sum = [];
+
+  if (product.length > 0) {
+    let intval = 0;
+    sum = product.map((elem) => {
+      const val1 = elem.price.cost;
+      return (intval = intval + val1);
+    });
+  }
+
+  const total = sum[sum.length - 1];
+
+  console.log(total);
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Order summary
       </Typography>
       <List disablePadding>
-        {products.map((product) => (
-          <ListItem key={product.name} sx={{ py: 1, px: 0 }}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
+        {product.map((elem, i) => (
+          <ListItem key={elem.title.longTitle} sx={{ py: 1, px: 0 }}>
+            <ListItemText
+              primary={elem.title.longTitle}
+              secondary={elem.title.shortTitle}
+            />
+            <Typography variant="body2">₹{elem.price.cost}</Typography>
           </ListItem>
         ))}
 
         <ListItem sx={{ py: 1, px: 0 }}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            $34.06
+            ₹{total}
           </Typography>
         </ListItem>
       </List>
