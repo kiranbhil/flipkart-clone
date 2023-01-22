@@ -36,7 +36,7 @@ const Details = () => {
     const { id } = useParams();
 
     const { loading, product } = useSelector(state => state.getProductDetails);
-
+console.log(product)
     const dispatch = useDispatch();
     
     useEffect(() => {
@@ -53,17 +53,20 @@ const Details = () => {
                  <ActionItem product={product} />
                 </Box>
                 <Box className='Details_of_single_product_container_right_child' item lg={8} md={8} sm={8} xs={12}>
-                  <Text>{product.title.longTitle}</Text>
+                <Text color={"gray"} fontWeight={"bold"} width={"80%"}>{product.title.shortTitle}</Text>
+                  <Text  width={"80%"}>{product.title.longTitle}</Text>
                   <Heading style={{marginTop: 5, color: '#878787', fontSize: 14 }}>
-                            8 Ratings & 1 Reviews
+                            <Box display={"flex"}>
+                             <Text>8 Ratings & 1 Reviews</Text>
                             <span><img src={fassured} style={{width: 77, marginLeft: 20}} /></span>
+                            </Box>
                   </Heading>
                   <Text>
                             <span style={{ fontSize: 28 }}>₹{product.price.cost}</span>&nbsp;&nbsp;&nbsp; 
                             <span style={{ color: '#878787' }}><strike>₹{product.price.mrp}</strike></span>&nbsp;&nbsp;&nbsp;
                             <span style={{ color: '#388E3C' }}>{product.price.discount} off</span>
                   </Text>
-                  {/* <ProductDetail product={product} /> */}
+                  <ProductDetail product={product} />
                 </Box>
               </Box>
             }

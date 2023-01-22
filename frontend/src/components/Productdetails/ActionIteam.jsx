@@ -9,10 +9,11 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Box,styled } from '@mui/material';
 import { Button } from '@chakra-ui/react';
+import axios from 'axios';
 
 const LeftContainer = styled(Box)({
     minWidth: '40%',
-    padding: '40px 0 0 80px',
+    // padding: '40px 0 0 80px',
 })
 
 const Image = styled('img')({
@@ -41,14 +42,26 @@ const ActionItem = ({ product }) => {
 
     const addItemToCart = () => {
         // dispatch(addToCart(id, quantity));
-        navigate('/cart');
+        const cartdata={url: product.url,
+            detailurl: "Hello",
+            price: product.price,
+            title: product.title,
+            quantity: product.quantity,
+            description: product.description,
+            tagline: product.tagline,}
+
+        axios.post("http://localhost:8000/addtocart",cartdata)
+        .then((res)=>console.log(res))
+        .then(()=>navigate("/cart"))
+        .catch((res)=>console.log(res))
     }
+
 
     return (
         <LeftContainer>
             <Image src={product.url} />
             <br />
-            <Button  style={{marginRight: 10, background: '#ff9f00',width: "46%",borderRadius:"2px",height:"50px",color: '#FFF'}} variant="contained">Add to Cart</Button>
+            <Button onClick={addItemToCart}  style={{marginRight: 10, background: '#ff9f00',width: "46%",borderRadius:"2px",height:"50px",color: '#FFF'}} variant="contained">Add to Cart</Button>
             <Button  style={{background: '#fb641b',width: "46%",borderRadius:"2px",height:"50px",color: '#FFF'}} variant="contained"><Flash /> Buy Now</Button>
         </LeftContainer>
     )

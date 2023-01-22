@@ -1,7 +1,7 @@
 // import { Box, Typography, Table, TableBody, TableRow, TableCell, styled } from '@mui/material';
 // import { LocalOffer as Badge } from '@mui/icons-material';
 import "./Details.css"
-import {Heading} from "@chakra-ui/react"
+import {Badge, Box, Heading, List, ListIcon, ListItem, Text} from "@chakra-ui/react"
 // const SmallText = styled(Box)`
 //     font-size: 14px;
 //     vertical-align: baseline;
@@ -32,13 +32,27 @@ const ProductDetail = ({ product }) => {
     
     return (
         <>
-            <Heading>Available offers</Heading>
-            {/* <SmallText>
-                <Typography><StyledBadge />Bank Offer 5% Unlimited Cashback on Flipkart Axis Bank Credit Card</Typography>
-                <Typography><StyledBadge />Bank Offer 10% Off on Bank of Baroda Mastercard debit card first time transaction, Terms and Condition apply</Typography>
-                <Typography><StyledBadge />Purchase this Furniture or Appliance and Get Extra ₹500 Off on Select ACs</Typography>
-                <Typography><StyledBadge />Partner OfferExtra 10% off upto ₹500 on next furniture purchase</Typography>
-            </SmallText> */}
+            <Text fontWeight={"bold"} fontSize={"18px"}>Available offers</Text>
+            <Box>
+            <List spacing={3}>
+               <ListItem>
+                <ListIcon icon="check-circle" color="green" />
+                    Bank Offer 5% Unlimited Cashback on Flipkart Axis Bank Credit Card
+                </ListItem>
+               <ListItem>
+                <ListIcon icon="check-circle" color="green" />
+                    Bank Offer 10% Off on Bank of Baroda Mastercard debit card first time transaction, Terms and Condition apply
+                </ListItem>
+               <ListItem>
+                <ListIcon icon="check-circle" color="green" />
+                    Purchase this Furniture or Appliance and Get Extra ₹500 Off on Select ACs
+               </ListItem>
+               <ListItem>
+                <ListIcon icon="check-circle" color="green" />
+                    Partner OfferExtra 10% off upto ₹500 on next furniture purchase
+                </ListItem>
+            </List>
+            </Box>
             {/* <SmallText>
                 <Typography><StyledBadge />Bank Offer 5% Unlimited Cashback on Flipkart Axis Bank Credit Card</Typography>
                 <Typography><StyledBadge />Bank Offer 10% Off on Bank of Baroda Mastercard debit card first time transaction, Terms and Condition apply</Typography>
