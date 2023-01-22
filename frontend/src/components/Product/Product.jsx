@@ -56,7 +56,7 @@ const Products = () => {
         <Grid container spacing={{ md: 2, lg: 5 }} columns={{ sm: 1, md: 2, lg: 4 }}>
           {data.map((product) => (
 
-            <Link key={product.id} to={`product/${product._id}`} style={{ textDecoration: "none" }}>
+            <Link key={product.id} to={`product/${product.id}`} style={{ textDecoration: "none" }}>
               <Grid item xs={2} sm={4} md={4} key={product.id}>
             
               <Box

@@ -113,7 +113,7 @@ const Slide = ({ products, title, timer }) => {
         itemClass="carousel-item-padding-40-px"
       >
         {products.map((product) => (
-          <Link key={product.id} to={`product/${product._id}`} style={{ textDecoration: "none" }}>
+          <Link key={product.id} to={`product/${product.id}`} style={{ textDecoration: "none" }}>
             <Box
               textAlign="center"
               style={{
