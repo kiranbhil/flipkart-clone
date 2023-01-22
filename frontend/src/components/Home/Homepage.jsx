@@ -21,7 +21,7 @@ function Homepage() {
 
   const getData = () => {
     axios
-    .get("http://localhost:8000/products")
+    .get("https://concerned-rose-bighorn-sheep.cyclic.app/products")
     .then(data => setData(data.data))
     .catch(error => console.log(error));
     };
