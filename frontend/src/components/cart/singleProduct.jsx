@@ -18,10 +18,37 @@ import {
   TagLabel,
   TagRightIcon,
   Text,
+  useToast,
 } from "@chakra-ui/react";
+import axios from "axios";
 
-const SingleProduct = ({ image, id, Proname, Prodquan }) => {
+const SingleProduct = ({
+  image,
+  id,
+  Proname,
+  Prodquan,
+  MRP,
+  cost,
+  discount,
+}) => {
   const str_quantity = Prodquan + "";
+  const toast = useToast();
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:8000/deletecartproduct/${id}`)
+      .then((res) => console.log(res))
+      .then(() =>
+        toast({
+          title: "Itam Removed.",
+          description: "Itam Gets Deleted Success",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        })
+      )
+      .catch((err) => console.log(err));
+  };
 
   return (
     <ChakraProvider>
@@ -29,11 +56,12 @@ const SingleProduct = ({ image, id, Proname, Prodquan }) => {
         direction={{ base: "column", sm: "row" }}
         overflow="hidden"
         variant="elevated"
+        mb={4}
       >
         <Stack p={5}>
           <Image
             objectFit="cover"
-            maxW={{ base: "100%", sm: "300px" }}
+            maxW={{ base: "100%", sm: "200px" }}
             src={image}
             alt={id}
           />
@@ -84,13 +112,13 @@ const SingleProduct = ({ image, id, Proname, Prodquan }) => {
             </Flex>
             <Flex gap={"3"} alignItems={"center"}>
               <Text fontSize={"sm"} as="del">
-                ₹199
+                ₹{MRP}
               </Text>
               <Text fontSize={"lg"} fontWeight="medium">
-                ₹99
+                ₹{cost}
               </Text>
               <Tag bgColor={"transparent"} color="#388e3c">
-                <TagLabel>50%Off</TagLabel>
+                <TagLabel>{discount}off</TagLabel>
               </Tag>
               <Tag bgColor={"transparent"} color="#388e3c">
                 <TagLabel>2 offers applied</TagLabel>
@@ -104,7 +132,13 @@ const SingleProduct = ({ image, id, Proname, Prodquan }) => {
               <Button bgColor={"transparent"} _hover={{ color: "#2874f0" }}>
                 SAVE FOR LATER
               </Button>
-              <Button bgColor={"transparent"} _hover={{ color: "#2874f0" }}>
+              <Button
+                bgColor={"transparent"}
+                _hover={{ color: "#2874f0" }}
+                onClick={() => {
+                  handleDelete(id);
+                }}
+              >
                 REMOVE
               </Button>
             </Flex>

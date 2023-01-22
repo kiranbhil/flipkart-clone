@@ -56,6 +56,7 @@ const theme = createTheme();
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [data, setData] = React.useState({});
   const navigate = useNavigate();
   const methods = useForm({
     defaultValues: {
@@ -90,11 +91,14 @@ export default function Checkout() {
     setInterval(goToHomePage, 5000);
   }
 
-  console.log(activeStep === steps.length);
-
   const onSubmit = (data) => {
-    localStorage.setItem("userInfo", JSON.stringify(data));
+    setData(data);
   };
+
+  if (activeStep === steps.length - 1) {
+    localStorage.setItem("userInfo", JSON.stringify(data));
+    console.log("done")
+  }
 
   return (
     <ThemeProvider theme={theme}>
