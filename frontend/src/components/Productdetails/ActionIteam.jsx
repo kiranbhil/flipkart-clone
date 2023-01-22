@@ -2,20 +2,11 @@ import { useState } from 'react';
 import { ShoppingCart as Cart, FlashOn as Flash } from '@mui/icons-material';
 
 import { useNavigate } from 'react-router-dom';
-// import { payUsingPaytm } from '../../service/api';
-// import { post } from '../../utils/paytm';
-
-// import { addToCart } from '../../redux/actions/';
 import { useDispatch } from 'react-redux';
-import { Box,styled } from '@mui/material';
+import { Box } from '@mui/material';
 import { Button, Center } from '@chakra-ui/react';
 import axios from 'axios';
 import "./Details.css"
-
-
-
-
-
 
 
 const ActionItem = ({ product }) => {
@@ -44,7 +35,7 @@ const ActionItem = ({ product }) => {
             description: product.description,
             tagline: product.tagline,}
 
-        axios.post("http://localhost:8000/addtocart",cartdata)
+        axios.post("https://concerned-rose-bighorn-sheep.cyclic.app/addtocart",cartdata)
         .then((res)=>console.log(res))
         .then(()=>navigate("/cart"))
         .catch((res)=>console.log(res))

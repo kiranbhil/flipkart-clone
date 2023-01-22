@@ -18,7 +18,7 @@ export default function BasicStatistics() {
 
     const getData = () => {
       axios
-      .get("http://localhost:8000/products")
+      .get("https://concerned-rose-bighorn-sheep.cyclic.app/products")
       .then(data => setData(data.data))
       .catch(error => console.log(error));
       };
@@ -42,7 +42,7 @@ export default function BasicStatistics() {
         <br />
         <SimpleGrid columns={{ base: 1, md: 2, lg:5}} spacing={{ base: 5, lg: 8 }}>
         {data.map((product) => (
-            <Link key={product.id} to={`product/${product._id}`} style={{ textDecoration: "none" }}>
+            <Link key={product.id} to={`product/${product.id}`} style={{ textDecoration: "none" }}>
             <Grid alignContent={'center'} item xs={2} sm={4} md={4} key={product.id}>
             <Box borderWidth='1px' borderRadius='lg'
                 textAlign="center"

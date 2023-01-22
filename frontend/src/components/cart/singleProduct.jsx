@@ -36,7 +36,7 @@ const SingleProduct = ({
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8000/deletecartproduct/${id}`)
+      .delete(`https://concerned-rose-bighorn-sheep.cyclic.app//deletecartproduct/${id}`)
       .then((res) => console.log(res))
       .then(() =>
         toast({

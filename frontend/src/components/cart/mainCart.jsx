@@ -47,7 +47,7 @@ const MainCart = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/cartproduct")
+      .get("https://concerned-rose-bighorn-sheep.cyclic.app/cartproduct")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);

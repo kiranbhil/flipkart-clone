@@ -39,7 +39,7 @@ export default function Login() {
       try{
           await login(emailRef.current.value,passwordRef.current.value)
           alert("Login Succesful")
-          usenavigate("/adminpannel");
+          usenavigate("/");
 
       }catch(error){
           setuserNotFount(true)
