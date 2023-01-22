@@ -1,5 +1,7 @@
-import { Box, Button, Image, styled } from '@chakra-ui/react'
+import { Box, Button } from '@chakra-ui/react'
+import { styled } from '@mui/material'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // const LeftContainer=styled(Box)`
 // min-width:40%
@@ -10,7 +12,9 @@ const ActionIteam = ({product}) => {
     // <LeftContainer>
     <Box>
         <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" />
-        <Button variant="contained">ADD TO CART</Button>
+        <Link key={product.id} to={`cart/${product._id}`} style={{ textDecoration: "none" }}>
+          <Button variant="contained">ADD TO CART</Button>
+        </Link>
         <Button variant="contained">BUY NOW</Button>
         </Box>
     // </LeftContainer>
