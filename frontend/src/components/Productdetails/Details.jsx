@@ -49,10 +49,10 @@ console.log(product)
             {
                product && Object.keys(product).length &&
               <Box className='Details_of_single_product_container' >
-                <Box className='Details_of_single_product_container_left_child' item lg={4} md={4} sm={8} xs={12}>
+                <Box className='Details_of_single_product_container_left_child' mb={"30px"}  >
                  <ActionItem product={product} />
                 </Box>
-                <Box className='Details_of_single_product_container_right_child' marginTop={"5px"} item lg={8} md={8} sm={8} xs={12}>
+                <Box className='Details_of_single_product_container_right_child' ml={"20px"}width={"66%"} marginTop={"5px"} >
                 <Text marginTop={"15px"}  color={"gray"} fontWeight={"bold"} width={"80%"}>{product.title.shortTitle}</Text>
                   <Text marginTop={"15px"} width={"80%"}>{product.title.longTitle}</Text>
                   <Heading marginTop={"15px"} style={{marginTop: 5, color: '#878787', fontSize: 14 }}>
@@ -70,26 +70,6 @@ console.log(product)
                 </Box>
               </Box>
             }
-            {/* { product && Object.keys(product).length &&
-                <Box> 
-                    <Grid item lg={4} md={4} sm={8} xs={12}>
-                        <ActionItem product={product} />
-                    </Grid>
-                    <Box item lg={8} md={8} sm={8} xs={12}>
-                        <Typography>{product.title.longTitle}</Typography>
-                        <Typography style={{marginTop: 5, color: '#878787', fontSize: 14 }}>
-                            8 Ratings & 1 Reviews
-                            <span><img src={fassured} style={{width: 77, marginLeft: 20}} /></span>
-                        </Typography>
-                        <Typography>
-                            <span style={{ fontSize: 28 }}>₹{product.price.cost}</span>&nbsp;&nbsp;&nbsp; 
-                            <span style={{ color: '#878787' }}><strike>₹{product.price.mrp}</strike></span>&nbsp;&nbsp;&nbsp;
-                            <span style={{ color: '#388E3C' }}>{product.price.discount} off</span>
-                        </Typography>
-                        <ProductDetail product={product} />
-                    </Box>
-                </Box>
-            }    */}
         </Center>
     )
 }
