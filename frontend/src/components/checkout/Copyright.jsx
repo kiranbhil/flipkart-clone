@@ -88,7 +88,7 @@ export default function Checkout() {
   };
 
   if (activeStep === steps.length) {
-    setInterval(goToHomePage, 5000);
+    setTimeout(goToHomePage, 5000);
   }
 
   const onSubmit = (data) => {
@@ -97,7 +97,6 @@ export default function Checkout() {
 
   if (activeStep === steps.length - 1) {
     localStorage.setItem("userInfo", JSON.stringify(data));
-    console.log("done")
   }
 
   return (

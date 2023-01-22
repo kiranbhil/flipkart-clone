@@ -54,7 +54,7 @@ const MainCart = () => {
 
   return (
     <ChakraProvider>
-      <Flex gap={4} padding="50px" position={"absolute"}>
+      <Flex gap={4} padding="50px">
         <Box w={"70%"}>
           {data.length > 0 &&
             data.map((elem) => (
@@ -89,7 +89,7 @@ const MainCart = () => {
             </Button>
           </Flex>
         </Box>
-        <Box w={"30%"} backdropBlur border={"2px solid"}>
+        <Box w={"30%"} backdropBlur>
           <PriceDetails total={total} totalMrp={totalMrp} />
         </Box>
       </Flex>

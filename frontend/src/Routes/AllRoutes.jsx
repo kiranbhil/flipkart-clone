@@ -6,6 +6,8 @@ import Productdetailspage from '../components/Productdetails/Productdetailspage'
 import EmptyCart from '../components/cart/cartemptypage';
 import AdminPage from '../components/Admin/AdminPage';
 import Details from '../components/Productdetails/Details';
+import MainCart from "../components/cart/mainCart"
+import Copyright from "../components/checkout/Copyright"
 
 
 const AllRoutes = () => {
@@ -15,13 +17,14 @@ const AllRoutes = () => {
         <Routes>
           <Route path='/' element={<Homepage />}></Route>
           <Route path='/products' element={<ChakraProvider> <BasicStatistics /></ChakraProvider>}></Route>
-          <Route path='/cart' element={<EmptyCart />}></Route>
+          <Route path='/cart' element={<MainCart />}></Route>
           {/* <Route path='/products' element={<Products/>}></Route> */}
           <Route path='/products/product/:id' element={<ChakraProvider> <Details /></ChakraProvider>}></Route>
           {/* <Route path='/product/:id' element={<ChakraProvider> <Details /></ChakraProvider>}></Route> */}
           <Route path='/admin' element={<AdminPage/>}></Route>
           {/* <Route path='/fashion' element={<Fashion />}></Route> */}
           <Route path='/product/:id' element={<ChakraProvider> <Details /></ChakraProvider>}></Route>
+          <Route path="/checkout" element={<Copyright />} />
         </Routes>
       </div>
     )
