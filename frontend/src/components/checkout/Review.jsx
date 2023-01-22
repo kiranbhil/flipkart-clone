@@ -30,15 +30,19 @@ const products = [
   { name: "Shipping", desc: "", price: "Free" },
 ];
 
-const addresses = ["1 MUI Drive", "Reactville", "Anytown", "99999", "USA"];
-const payments = [
-  { name: "Card type", detail: "Visa" },
-  { name: "Card holder", detail: "Mr John Smith" },
-  { name: "Card number", detail: "xxxx-xxxx-xxxx-1234" },
-  { name: "Expiry date", detail: "04/2024" },
-];
-
 export default function Review() {
+  const data = JSON.parse(localStorage.getItem("userInfo"));
+  console.log(data);
+  const payments = [
+    { name: "Card type", detail: data.cardname },
+    {
+      name: "Card holder",
+      detail: "Mr " + data.firstName + " " + data.lastName,
+    },
+    { name: "Card number", detail: data.cardnumber },
+    { name: "Expiry date", detail: data.exp_date },
+  ];
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -64,8 +68,11 @@ export default function Review() {
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Shipping
           </Typography>
-          <Typography gutterBottom>John Smith</Typography>
-          <Typography gutterBottom>{addresses.join(", ")}</Typography>
+          <Typography gutterBottom>
+            {data.firstName} {data.lastName}
+          </Typography>
+          <Typography gutterBottom>{data.address1}</Typography>
+          <Typography gutterBottom>{data.address2}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
@@ -73,7 +80,7 @@ export default function Review() {
           </Typography>
           <Grid container>
             {payments.map((payment) => (
-              <React.Fragment key={payment.name}>
+              <React.Fragment key={data.name}>
                 <Grid item xs={6}>
                   <Typography gutterBottom>{payment.name}</Typography>
                 </Grid>
