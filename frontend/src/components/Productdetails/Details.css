@@ -1,9 +1,14 @@
 
-/* .Details_of_single_product{
-    background-color: black;
-} */
+.Details_of_single_product{
+    /* margin-top :"55px";
+   background:"#F2F2F2" */
+   margin-top: 40px;
+   width: 80%;
+   background-color: #f2f2f2;
+   margin: auto;
+}
 
-.Details_of_single_product_Grid_container{
-    background:#FFFFFF;
-    display:flex
+.Details_of_single_product_container{
+   background:#FFFFFF;
+   display:flex
 }

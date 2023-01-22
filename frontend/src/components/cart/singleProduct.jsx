@@ -20,7 +20,9 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-const SingleProduct = () => {
+const SingleProduct = ({ image, id, Proname, Prodquan }) => {
+  const str_quantity = Prodquan + "";
+
   return (
     <ChakraProvider>
       <Card
@@ -32,14 +34,14 @@ const SingleProduct = () => {
           <Image
             objectFit="cover"
             maxW={{ base: "100%", sm: "300px" }}
-            src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
-            alt="Caffe Latte"
+            src={image}
+            alt={id}
           />
           <Flex justifyContent={"center"} alignItems="center" gap={"3"}>
             <Button borderRadius={"full"} variant="outline" _hover={"none"}>
               -
             </Button>
-            <PinInput defaultValue={"1"}>
+            <PinInput defaultValue={str_quantity}>
               <PinInputField />
             </PinInput>
             <Button borderRadius={"full"} variant="outline" _hover={"none"}>
@@ -55,7 +57,7 @@ const SingleProduct = () => {
                 size="sm"
                 _hover={{ color: "#2874f0", cursor: "pointer" }}
               >
-                ADONYX Pubg Freefire Gaming Sleep-proof Screen T ...
+                {Proname}
               </Heading>
               <Heading size="sm">Delivery by Mon Jan 23 | Free₹40</Heading>
             </Flex>

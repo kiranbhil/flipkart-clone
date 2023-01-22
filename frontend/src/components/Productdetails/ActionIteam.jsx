@@ -1,24 +1,70 @@
-import { Box, Button } from '@chakra-ui/react'
-import { styled } from '@mui/material'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { ShoppingCart as Cart, FlashOn as Flash } from '@mui/icons-material';
 
-// const LeftContainer=styled(Box)`
-// min-width:40%
-// padding:40px 0px 0px 80px
-// `
-const ActionIteam = ({product}) => {
-  return (
-    // <LeftContainer>
-    <Box>
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" />
-        <Link key={product.id} to={`cart/${product._id}`} style={{ textDecoration: "none" }}>
-          <Button variant="contained">ADD TO CART</Button>
-        </Link>
-        <Button variant="contained">BUY NOW</Button>
-        </Box>
-    // </LeftContainer>
-  )
+import { useNavigate } from 'react-router-dom';
+// import { payUsingPaytm } from '../../service/api';
+// import { post } from '../../utils/paytm';
+
+// import { addToCart } from '../../redux/actions/';
+import { useDispatch } from 'react-redux';
+import { Box,styled } from '@mui/material';
+import { Button } from '@chakra-ui/react';
+import axios from 'axios';
+
+const LeftContainer = styled(Box)({
+    minWidth: '40%',
+    // padding: '40px 0 0 80px',
+})
+
+const Image = styled('img')({
+    padding: '15px 20px',
+    border: '1px solid #f0f0f0',
+    width: '95%'
+});
+
+
+
+const ActionItem = ({ product }) => {
+    const navigate = useNavigate();
+    const { id } = product;
+        
+    const [quantity, setQuantity] = useState(1);
+    const dispatch = useDispatch();
+
+    const buyNow = async () => {
+        // let response = await payUsingPaytm({ amount: 500, email: 'codeforinterview01@gmail.com'});
+        // var information = {
+        //     action: 'https://securegw-stage.paytm.in/order/process',
+        //     params: response    
+        // }
+        console.log("Buy")
+    }
+
+    const addItemToCart = () => {
+        // dispatch(addToCart(id, quantity));
+        const cartdata={url: product.url,
+            detailurl: "Hello",
+            price: product.price,
+            title: product.title,
+            quantity: product.quantity,
+            description: product.description,
+            tagline: product.tagline,}
+
+        axios.post("http://localhost:8000/addtocart",cartdata)
+        .then((res)=>console.log(res))
+        .then(()=>navigate("/cart"))
+        .catch((res)=>console.log(res))
+    }
+
+
+    return (
+        <LeftContainer>
+            <Image src={product.url} />
+            <br />
+            <Button onClick={addItemToCart}  style={{marginRight: 10, background: '#ff9f00',width: "46%",borderRadius:"2px",height:"50px",color: '#FFF'}} variant="contained">Add to Cart</Button>
+            <Button  style={{background: '#fb641b',width: "46%",borderRadius:"2px",height:"50px",color: '#FFF'}} variant="contained"><Flash /> Buy Now</Button>
+        </LeftContainer>
+    )
 }
 
-export default ActionIteam
+export default ActionItem;

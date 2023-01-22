@@ -16,6 +16,14 @@ import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
 import Review from "./Review";
 
+import {
+  useForm,
+  FormProvider,
+  useFormContext,
+  Controller,
+} from "react-hook-form";
+import { json, useNavigate } from "react-router-dom";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -48,6 +56,23 @@ const theme = createTheme();
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const navigate = useNavigate();
+  const methods = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      address1: "",
+      address2: "",
+      city: "",
+      state: "",
+      zip: "",
+      country: "",
+      cardname: "",
+      cardnumber: "",
+      exp_date: "",
+      CVV: "",
+    },
+  });
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -57,24 +82,23 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
 
+  const goToHomePage = () => {
+    navigate("/");
+  };
+
+  if (activeStep === steps.length) {
+    setInterval(goToHomePage, 5000);
+  }
+
+  console.log(activeStep === steps.length);
+
+  const onSubmit = (data) => {
+    localStorage.setItem("userInfo", JSON.stringify(data));
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar
-        position="absolute"
-        color="default"
-        elevation={0}
-        sx={{
-          position: "relative",
-          borderBottom: (t) => `1px solid ${t.palette.divider}`,
-        }}
-      >
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Company name
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper
           variant="outlined"
@@ -103,22 +127,27 @@ export default function Checkout() {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              {getStepContent(activeStep)}
-              <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                {activeStep !== 0 && (
-                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                    Back
-                  </Button>
-                )}
+              <FormProvider {...methods}>
+                <form onSubmit={methods.handleSubmit(onSubmit)}>
+                  {getStepContent(activeStep)}
+                  <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                    {activeStep !== 0 && (
+                      <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                        Back
+                      </Button>
+                    )}
 
-                <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mt: 3, ml: 1 }}
-                >
-                  {activeStep === steps.length - 1 ? "Place order" : "Next"}
-                </Button>
-              </Box>
+                    <Button
+                      variant="contained"
+                      onClick={handleNext}
+                      sx={{ mt: 3, ml: 1 }}
+                      type="submit"
+                    >
+                      {activeStep === steps.length - 1 ? "Place order" : "Next"}
+                    </Button>
+                  </Box>
+                </form>
+              </FormProvider>
             </React.Fragment>
           )}
         </Paper>

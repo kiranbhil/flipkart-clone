@@ -39,8 +39,10 @@ function Homepage() {
             <BannerMid />
             <MidSlide products={data} title="Deal of the Day" timer={false} />
             <Slide products={data} title="Discounts for you" timer = {false} />
+            <BannerMid />
             <Slide products={data} title="Top Selection"  timer = {false} />
           <Slide products={data} title="Trending Offers" timer = {false} />
+          <BannerMid />
           <Slide products={data} title="Season's top picks" timer = {false} />
           <Slide products={data} title="Top Deals on Accessories" timer = {false} />
 
