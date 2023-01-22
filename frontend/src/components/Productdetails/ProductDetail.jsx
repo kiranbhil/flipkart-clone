@@ -1,39 +1,17 @@
 // import { Box, Typography, Table, TableBody, TableRow, TableCell, styled } from '@mui/material';
 // import { LocalOffer as Badge } from '@mui/icons-material';
 import "./Details.css"
-import {Badge, Box, Heading, List, ListIcon, ListItem, Text} from "@chakra-ui/react"
-// const SmallText = styled(Box)`
-//     font-size: 14px;
-//     vertical-align: baseline;
-//     & > p {
-//         font-size: 14px;
-//         margin-top: 10px;
-//     }
-// `
-
-// const ColumnText = styled(TableRow)`
-//     font-size: 14px;
-//     vertical-align: baseline;
-//     & > td {
-//         font-size: 14px;
-//         margin-top: 10px;
-//     }
-// `
-
-// const StyledBadge = styled(Badge)`
-//     margin-right: 10px;
-//     color: #00CC00;
-//     font-size: 15px;
-// `;
+import {Badge, Box, Heading, Image, List, ListIcon, ListItem, Popover, PopoverContent, PopoverTrigger, Text} from "@chakra-ui/react"
+import {SizeChart} from "../../image/"
 
 const ProductDetail = ({ product }) => {
     const adURL = 'https://rukminim1.flixcart.com/lockin/774/185/images/CCO__PP_2019-07-14.png?q=50';
     const date = new Date(new Date().getTime()+(5*24*60*60*1000));
     
     return (
-        <>
-            <Text fontWeight={"bold"} fontSize={"18px"}>Available offers</Text>
-            <Box>
+        <Box marginTop={"10px"}>
+            <Text  fontWeight={"bold"} fontSize={"18px"}>Available offers</Text>
+            <Box marginTop={"15px"}>
             <List spacing={3}>
                <ListItem>
                 <ListIcon icon="check-circle" color="green" />
@@ -52,7 +30,23 @@ const ProductDetail = ({ product }) => {
                     Partner OfferExtra 10% off upto ₹500 on next furniture purchase
                 </ListItem>
             </List>
+            <select className='option' style={{margin:"20px" ,border:"1px solid green"}} >
+            <option>Choose Size</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            </select>
             </Box>
+            <Popover>
+             <PopoverTrigger>
+              <Text margin={'20px'}>{'> Size Chart'}</Text>
+             </PopoverTrigger>
+             <PopoverContent>
+              <Image  />
+             </PopoverContent>
+            </Popover>
             {/* <SmallText>
                 <Typography><StyledBadge />Bank Offer 5% Unlimited Cashback on Flipkart Axis Bank Credit Card</Typography>
                 <Typography><StyledBadge />Bank Offer 10% Off on Bank of Baroda Mastercard debit card first time transaction, Terms and Condition apply</Typography>
@@ -88,7 +82,7 @@ const ProductDetail = ({ product }) => {
                     </ColumnText>
                 </TableBody>
             </Table> */}
-        </>
+        </Box>
     )
 }
 
