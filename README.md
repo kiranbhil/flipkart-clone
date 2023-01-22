@@ -79,8 +79,8 @@ As we never really stop learning, This was our 1st full-stack project, and as us
 
 ## Contributors
 
-- [@Kiran Bhill](https://github.com/JatinKhatter07)
-- [@Shubham Patel](https://github.com/shubhampatel12499)
-- [@Anuj ](https://github.com/sudiptadip)
-- [@Yasim](https://github.com/akshay655-max)
-- [@Nasir](https://github.com/akshay655-max)
+- [@Kiran Bhil](https://github.com/kiranbhil)
+- [@Shubham Patel](https://github.com/ShubhamPatel12499)
+- [@Anuj Kumar Singh ](https://github.com/srinetanuj)
+- [@Yasim Jamadar](https://github.com/Yasin051197)
+- [@Nasir Imam](https://github.com/Nasirimam)
