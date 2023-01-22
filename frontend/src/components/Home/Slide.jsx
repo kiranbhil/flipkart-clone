@@ -2,7 +2,7 @@ import { Button, Typography, Box, Divider, styled } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 // import Countdown from "react-countdown";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const timerURL =
   "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg";
@@ -70,6 +70,10 @@ const Text = styled(Typography)`
 `;
 
 const Slide = ({ products, title, timer }) => {
+  const navigate = useNavigate()
+  const viewAll = ()=>{
+    navigate('/products')
+  }
   return (
     <Component>
       <Deal>
@@ -87,7 +91,7 @@ const Slide = ({ products, title, timer }) => {
           </Timer>
         )}
 
-        <ViewButton variant="contained" color="primary">
+        <ViewButton onClick={viewAll} variant="contained" color="primary">
           View All
         </ViewButton>
       </Deal>
