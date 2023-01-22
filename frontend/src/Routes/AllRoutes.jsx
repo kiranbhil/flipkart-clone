@@ -17,10 +17,10 @@ const AllRoutes = () => {
           <Route path='/products' element={<ChakraProvider> <BasicStatistics /></ChakraProvider>}></Route>
           <Route path='/cart' element={<EmptyCart />}></Route>
           {/* <Route path='/products' element={<Products/>}></Route> */}
-          <Route path='/products/product/:id' element={<ChakraProvider> <Productdetailspage /></ChakraProvider>}></Route>
-          <Route path='/product/:id' element={<ChakraProvider> <Productdetailspage /></ChakraProvider>}></Route>
+          <Route path='/products/product/:id' element={<ChakraProvider> <Details /></ChakraProvider>}></Route>
+          {/* <Route path='/product/:id' element={<ChakraProvider> <Details /></ChakraProvider>}></Route> */}
           <Route path='/admin' element={<AdminPage/>}></Route>
-          <Route path='/fashion' element={<Fashion />}></Route>
+          {/* <Route path='/fashion' element={<Fashion />}></Route> */}
           <Route path='/product/:id' element={<ChakraProvider> <Details /></ChakraProvider>}></Route>
         </Routes>
       </div>
