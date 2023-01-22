@@ -52,12 +52,10 @@ go to http://localhost:3000
 
 ## Functionalities of the website
 
-1. A user can register his account on the website
-2. User can log in using their mobile number through otp authentication
-3. User can search from the variety of products available 
-4. User can filter and sort their search on various parameters, i.e. price, relavance, and many more
-5. User can select the Quantity while purchasing any product
-6. User can checkout with razor's payment gateway through Card, UPI, Netbanking, etc. 
+1. A user can register his account on the website.
+2. User can log in using firebase api.
+3. User can select the Quantity while purchasing any product
+4. User can checkout with razor's payment gateway through Card, UPI, Netbanking, etc. 
 
 ## Snippets
 <p>
@@ -70,14 +68,13 @@ go to http://localhost:3000
 ## Lessons Learned
 
 As we never really stop learning, This was our 1st full-stack project, and as usual there were a lot of chalenges with the learnings we experienced. some of the highlighted learning were:-
-- Building Database using mongodb and deployment using Mongo Atlas
-- Setting up API requests using Express and Deployment on cyclic
+- Building Database using mongodb and deployment using Mongo Atlas.
+- Setting up API requests using Express and Deployment on cyclic.
 - Algorithm building for users data such as, items in cart, location etc.
-- Playing with animation to get desired output
-- Using redux to for CRUD operations
-- building custom filters
-- Using Tailwindcss for better styling experience
-- Using real-time otp for login and payment
+- Playing with animation to get desired output.
+- Using redux to for CRUD operations.
+- Using ChakraUI for better styling experience.
+- Using firebase for login and Register.
 
 
 ## Contributors
