@@ -1,6 +1,6 @@
 import * as actionType from "../constant/productConstant";
 import axios from "axios";
-const URL = "http://localhost:8000";
+const URL = "https://concerned-rose-bighorn-sheep.cyclic.app/";
 
 export const getProducts = () => async (dispathch) => {
   try {

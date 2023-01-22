@@ -55,7 +55,7 @@ const Banner = () => {
       itemClass="carousel-item-padding-40-px"
       // removeArrowOnDeviceType={["tablet", "mobile"]}
       autoPlay={true}
-      autoPlaySpeed={1000}
+      autoPlaySpeed={4000}
       keyBoardControl={true}
       infinite={true}
       slidesToSlide={1}

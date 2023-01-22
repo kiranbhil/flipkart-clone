@@ -48,7 +48,7 @@ export default function Review() {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:8000/cartproduct")
+      .get("https://concerned-rose-bighorn-sheep.cyclic.app/cartproduct")
       .then((res) => setProduct(res.data))
       .catch((err) => console.log(err));
   }, []);
