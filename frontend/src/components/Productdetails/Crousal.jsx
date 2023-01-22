@@ -102,17 +102,6 @@ export default function Carousel({ data }) {
           </IconButton>
         </Box>
       </Box>
-      {/* <Box
-        m="auto"
-        p="2rem"
-        w="20%"
-        border={'1px solid red'}
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent="center"
-      >
-       
-      </Box> */}
     </Box>
   );
 }

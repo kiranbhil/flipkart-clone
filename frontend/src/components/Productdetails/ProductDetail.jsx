@@ -1,40 +1,26 @@
 // import { Box, Typography, Table, TableBody, TableRow, TableCell, styled } from '@mui/material';
 // import { LocalOffer as Badge } from '@mui/icons-material';
 import "./Details.css"
-import {Badge, Box, Heading, List, ListIcon, ListItem, Text} from "@chakra-ui/react"
-// const SmallText = styled(Box)`
-//     font-size: 14px;
-//     vertical-align: baseline;
-//     & > p {
-//         font-size: 14px;
-//         margin-top: 10px;
-//     }
-// `
-
-// const ColumnText = styled(TableRow)`
-//     font-size: 14px;
-//     vertical-align: baseline;
-//     & > td {
-//         font-size: 14px;
-//         margin-top: 10px;
-//     }
-// `
-
-// const StyledBadge = styled(Badge)`
-//     margin-right: 10px;
-//     color: #00CC00;
-//     font-size: 15px;
-// `;
+import {Alert, Badge, Box, Heading, Image, List, ListIcon, ListItem, Popover, PopoverContent, PopoverTrigger, Text} from "@chakra-ui/react"
+import SizeChart from "../../image/SizeChart.jpeg";
 
 const ProductDetail = ({ product }) => {
     const adURL = 'https://rukminim1.flixcart.com/lockin/774/185/images/CCO__PP_2019-07-14.png?q=50';
-    const date = new Date(new Date().getTime()+(5*24*60*60*1000));
-    
+    // const date = new Date(new Date().getTime()+(5*24*60*60*1000));
+    const handlechange=(e)=>
+  {
+    const value=e.target.value
+    console.log(value)
+    if(!value)
+    {
+        Alert("Please Select The size")
+    }
+  }
     return (
-        <>
-            <Text fontWeight={"bold"} fontSize={"18px"}>Available offers</Text>
-            <Box>
-            <List spacing={3}>
+        <Box mb={"50px"} marginTop={"10px"}>
+            <Text  fontWeight={"bold"} fontSize={"17px"}>Available offers</Text>
+            <Box marginTop={"15px"}>
+            <List spacing={2}>
                <ListItem>
                 <ListIcon icon="check-circle" color="green" />
                     Bank Offer 5% Unlimited Cashback on Flipkart Axis Bank Credit Card
@@ -52,43 +38,27 @@ const ProductDetail = ({ product }) => {
                     Partner OfferExtra 10% off upto ₹500 on next furniture purchase
                 </ListItem>
             </List>
+            <select onChange={handlechange} className='option' style={{margin:"20px" ,border:"1px solid green"}} >
+            <option>Choose Size</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            </select>
             </Box>
-            {/* <SmallText>
-                <Typography><StyledBadge />Bank Offer 5% Unlimited Cashback on Flipkart Axis Bank Credit Card</Typography>
-                <Typography><StyledBadge />Bank Offer 10% Off on Bank of Baroda Mastercard debit card first time transaction, Terms and Condition apply</Typography>
-                <Typography><StyledBadge />Purchase this Furniture or Appliance and Get Extra ₹500 Off on Select ACs</Typography>
-                <Typography><StyledBadge />Partner OfferExtra 10% off upto ₹500 on next furniture purchase</Typography>
-            </SmallText>
-            <Table>
-                <TableBody>
-                    <ColumnText>
-                        <TableCell style={{ color: '#878787' }}>Delivery</TableCell>
-                        <TableCell style={{ fontWeight: 600 }}>Delivery by {date.toDateString()} | ₹40</TableCell>
-                    </ColumnText>
-                    <ColumnText>
-                        <TableCell style={{ color: '#878787' }}>Warranty</TableCell>
-                        <TableCell>No Warranty</TableCell>
-                    </ColumnText>
-                    <ColumnText>
-                        <TableCell style={{ color: '#878787' }}>Seller</TableCell>
-                        <TableCell>
-                            <span style={{ color: '#2874f0' }}>SuperComNet</span>
-                            <Typography>GST invoice available</Typography>
-                            <Typography>View more sellers starting from ₹329</Typography>
-                        </TableCell>
-                    </ColumnText>
-                    <TableRow>
-                        <TableCell colSpan={2}>
-                            <img src={adURL} style={{ width: 390 }} />
-                        </TableCell>
-                    </TableRow>
-                    <ColumnText>
-                        <TableCell style={{ color: '#878787' }}>Description</TableCell>
-                        <TableCell>{product.description}</TableCell>
-                    </ColumnText>
-                </TableBody>
-            </Table> */}
-        </>
+            <Popover>
+             <PopoverTrigger>
+              <Text>{'> Size Chart'}</Text>
+             </PopoverTrigger>
+             <PopoverContent>
+              <Image src={SizeChart} />
+             </PopoverContent>
+            </Popover>
+            <Box marginTop={'10px'}>
+              <Image width={"60%"} src={adURL} />
+            </Box>
+        </Box>
     )
 }
 

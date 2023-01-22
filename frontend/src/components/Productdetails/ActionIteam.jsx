@@ -8,19 +8,13 @@ import { useNavigate } from 'react-router-dom';
 // import { addToCart } from '../../redux/actions/';
 import { useDispatch } from 'react-redux';
 import { Box,styled } from '@mui/material';
-import { Button } from '@chakra-ui/react';
+import { Button, Center } from '@chakra-ui/react';
 import axios from 'axios';
+import "./Details.css"
 
-const LeftContainer = styled(Box)({
-    minWidth: '40%',
-    // padding: '40px 0 0 80px',
-})
 
-const Image = styled('img')({
-    padding: '15px 20px',
-    border: '1px solid #f0f0f0',
-    width: '95%'
-});
+
+
 
 
 
@@ -58,12 +52,14 @@ const ActionItem = ({ product }) => {
 
 
     return (
-        <LeftContainer>
-            <Image src={product.url} />
+        <Box>
+            <img  src={product.url} style={{width:"100%"}} />
             <br />
-            <Button onClick={addItemToCart}  style={{marginRight: 10, background: '#ff9f00',width: "46%",borderRadius:"2px",height:"50px",color: '#FFF'}} variant="contained">Add to Cart</Button>
-            <Button  style={{background: '#fb641b',width: "46%",borderRadius:"2px",height:"50px",color: '#FFF'}} variant="contained"><Flash /> Buy Now</Button>
-        </LeftContainer>
+            <Center className='left_container_button'>
+            <Button onClick={addItemToCart}  style={{marginRight: 10,width:"46%", background: '#ff9f00',color: '#FFF'}} >Add to Cart</Button>
+            <Button  style={{background: '#fb641b',width:"46%",color: '#FFF'}} ><Flash /> Buy Now</Button>
+            </Center>
+        </Box>
     )
 }
 

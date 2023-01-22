@@ -12,3 +12,31 @@
    background:#FFFFFF;
    display:flex
 }
+.left_container_button
+{
+   display:flex
+}
+
+@media screen and (max-width: 800px) {
+   .Details_of_single_product_container
+   {
+       display:grid;
+   }
+   .Details_of_single_product{
+      width: 100%;
+      margin: auto;
+   }
+   .Details_of_single_product_container_left_child
+   {
+      width: 80%;
+      margin: auto;
+   }
+ }
+ 
+ @media screen and (max-width: 500px){
+   .left_container_button
+   {
+      display: grid;
+      margin: auto;
+   }
+ }
