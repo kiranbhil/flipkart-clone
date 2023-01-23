@@ -57,7 +57,7 @@ go to http://localhost:3000
 1. A user can register his account on the website.
 2. User can log in using firebase api.
 3. User can select the Quantity while purchasing any product
-4. User can checkout with razor's payment gateway through Card, UPI, Netbanking, etc. 
+4. User can checkout with payment gateway through Card, UPI, Netbanking, etc. 
 
 ## Snippets
 <p>
