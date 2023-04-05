@@ -28,8 +28,8 @@ const PriceDetails = ({ total, totalMrp }) => {
         <Divider />
         <Flex p="10px 20px" flexDir={"column"} gap="4" fontWeight={"normal"}>
           <Flex justifyContent={"space-between"}>
-            <Text>Price (4 items)</Text>
-            <Text>₹{totalMrp}</Text>
+            <Text>Price</Text>
+            <Text>₹{total}</Text>
           </Flex>
           <Flex justifyContent={"space-between"}>
             {" "}
@@ -47,7 +47,7 @@ const PriceDetails = ({ total, totalMrp }) => {
             fontWeight={"semibold"}
           >
             <Text>Total Amount</Text>
-            <Text>₹{total}</Text>
+            <Text>₹{totalMrp}</Text>
           </Flex>
           <Divider variant="dashed" borderColor="blackAlpha.500" />
 

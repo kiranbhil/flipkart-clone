@@ -9,10 +9,8 @@ import {
   Flex,
   Heading,
   Image,
-  Input,
   PinInput,
   PinInputField,
-  Spacer,
   Stack,
   Tag,
   TagLabel,
@@ -21,6 +19,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { useEffect } from "react";
 
 const SingleProduct = ({
   image,
@@ -30,14 +29,16 @@ const SingleProduct = ({
   MRP,
   cost,
   discount,
+  setData,
+  getData
 }) => {
   const str_quantity = Prodquan + "";
   const toast = useToast();
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://concerned-rose-bighorn-sheep.cyclic.app//deletecartproduct/${id}`)
-      .then((res) => console.log(res))
+      .delete(`https://concerned-rose-bighorn-sheep.cyclic.app/deletecartproduct/${id}`)
+      .then(()=>getData().then((res)=>setData(res.data)))
       .then(() =>
         toast({
           title: "Itam Removed.",
@@ -49,7 +50,6 @@ const SingleProduct = ({
       )
       .catch((err) => console.log(err));
   };
-
   return (
     <ChakraProvider>
       <Card

@@ -12,7 +12,9 @@ import { useEffect } from "react";
 import PriceDetails from "./priceDetails";
 import SingleProduct from "./singleProduct";
 import { useNavigate } from "react-router-dom";
-
+const getData=async()=>{
+  return await axios.get("https://concerned-rose-bighorn-sheep.cyclic.app/cartproduct")
+}
 const MainCart = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
@@ -46,9 +48,7 @@ const MainCart = () => {
   };
 
   useEffect(() => {
-    axios
-      .get("https://concerned-rose-bighorn-sheep.cyclic.app/cartproduct")
-      .then((res) => setData(res.data))
+      getData().then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
 
@@ -67,6 +67,8 @@ const MainCart = () => {
                 MRP={elem.price.mrp}
                 cost={elem.price.cost}
                 discount={elem.price.discount}
+                setData={setData}
+                getData={getData}
               />
             ))}
           <Flex
