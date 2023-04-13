@@ -30,9 +30,9 @@ const SingleProduct = ({
   cost,
   discount,
   setData,
-  getData
+  getData,
+  setQuantity
 }) => {
-  const str_quantity = Prodquan + "";
   const toast = useToast();
 
   const handleDelete = (id) => {
@@ -50,6 +50,12 @@ const SingleProduct = ({
       )
       .catch((err) => console.log(err));
   };
+  const Inc=()=>{
+    setQuantity(prev=>prev+1)
+  }
+  const Dec=()=>{
+      Prodquan===0?setQuantity(0):setQuantity(prev=>prev-1)
+  }
   return (
     <ChakraProvider>
       <Card
@@ -66,13 +72,13 @@ const SingleProduct = ({
             alt={id}
           />
           <Flex justifyContent={"center"} alignItems="center" gap={"3"}>
-            <Button borderRadius={"full"} variant="outline" _hover={"none"}>
+            <Button onClick={Dec} borderRadius={"full"} variant="outline" _hover={"none"}>
               -
             </Button>
-            <PinInput defaultValue={str_quantity}>
-              <PinInputField />
-            </PinInput>
             <Button borderRadius={"full"} variant="outline" _hover={"none"}>
+              {Prodquan}
+            </Button>
+            <Button onClick={Inc} borderRadius={"full"} variant="outline" _hover={"none"}>
               +
             </Button>
           </Flex>
@@ -94,7 +100,7 @@ const SingleProduct = ({
               Pack of 4
             </Text>
             <Flex gap="4" pt={2} pb={8}>
-              <Text color="#878787">Seller:ADONYX</Text>
+              <Text color="#878787">Seller: ADONYX</Text>
               <Box
                 w={{
                   base: "25%",
@@ -112,10 +118,10 @@ const SingleProduct = ({
             </Flex>
             <Flex gap={"3"} alignItems={"center"}>
               <Text fontSize={"sm"} as="del">
-                ₹{MRP}
+                ₹{cost}
               </Text>
               <Text fontSize={"lg"} fontWeight="medium">
-                ₹{cost}
+                ₹{MRP}
               </Text>
               <Tag bgColor={"transparent"} color="#388e3c">
                 <TagLabel>{discount}off</TagLabel>

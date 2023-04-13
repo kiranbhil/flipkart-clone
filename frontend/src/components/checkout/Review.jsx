@@ -8,29 +8,6 @@ import { Box } from "@mui/system";
 import axios from "axios";
 import { useState } from "react";
 
-const products = [
-  {
-    name: "Product 1",
-    desc: "A nice thing",
-    price: "$9.99",
-  },
-  {
-    name: "Product 2",
-    desc: "Another thing",
-    price: "$3.45",
-  },
-  {
-    name: "Product 3",
-    desc: "Something else",
-    price: "$6.51",
-  },
-  {
-    name: "Product 4",
-    desc: "Best thing of all",
-    price: "$14.11",
-  },
-  { name: "Shipping", desc: "", price: "Free" },
-];
 
 export default function Review() {
   const data = JSON.parse(localStorage.getItem("userInfo"));
@@ -45,6 +22,7 @@ export default function Review() {
   ];
 
   const [product, setProduct] = useState([]);
+  const [ids,setIds]=useState([])
 
   React.useEffect(() => {
     axios
@@ -58,14 +36,12 @@ export default function Review() {
   if (product.length > 0) {
     let intval = 0;
     sum = product.map((elem) => {
-      const val1 = elem.price.cost;
+      const val1 = elem.price.mrp;
       return (intval = intval + val1);
     });
   }
 
   const total = sum[sum.length - 1];
-
-  console.log(total);
 
   return (
     <React.Fragment>
@@ -74,12 +50,12 @@ export default function Review() {
       </Typography>
       <List disablePadding>
         {product.map((elem, i) => (
-          <ListItem key={elem.title.longTitle} sx={{ py: 1, px: 0 }}>
+          <ListItem fontWeight={"bold"} key={elem.title.longTitle} sx={{ py: 1, px: 0 }}>
             <ListItemText
               primary={elem.title.longTitle}
               secondary={elem.title.shortTitle}
             />
-            <Typography variant="body2">₹{elem.price.cost}</Typography>
+            <Typography variant="body2">₹{elem.price.mrp}</Typography>
           </ListItem>
         ))}
 

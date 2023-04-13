@@ -23,6 +23,7 @@ import {
   Controller,
 } from "react-hook-form";
 import { json, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -53,10 +54,15 @@ function getStepContent(step) {
 }
 
 const theme = createTheme();
+const getData=async()=>{
+  return await axios.get("https://concerned-rose-bighorn-sheep.cyclic.app/cartproduct")
+}
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [data, setData] = React.useState({});
+  const [deletedata,setDeletedata]=React.useState([])
+  const [ids,setIds]=React.useState([])
   const navigate = useNavigate();
   const methods = useForm({
     defaultValues: {
@@ -74,6 +80,16 @@ export default function Checkout() {
       CVV: "",
     },
   });
+  React.useEffect(() => {
+    getData().then((res) => setDeletedata(res.data))
+    .then(()=>{
+      deletedata.map((el)=>{
+        ids.push(el._id)
+      })
+    })
+    .catch((err) => console.log(err));
+}, []);
+
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -83,12 +99,12 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
 
-  const goToHomePage = () => {
-    navigate("/");
-  };
 
   if (activeStep === steps.length) {
-    setTimeout(goToHomePage, 5000);
+     ids.forEach(d=>{
+      axios.delete(`https://concerned-rose-bighorn-sheep.cyclic.app/deletecartproduct/${d}`)
+    })
+    setTimeout(navigate("/"),4000);
   }
 
   const onSubmit = (data) => {

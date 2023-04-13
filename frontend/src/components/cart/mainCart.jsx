@@ -5,6 +5,7 @@ import {
   Flex,
   Grid,
   GridItem,
+  useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
@@ -17,7 +18,9 @@ const getData=async()=>{
 }
 const MainCart = () => {
   const [data, setData] = useState([]);
+  const [quantity,setQuantity]=useState(0)
   const navigate = useNavigate();
+  const toast = useToast();
 
   var sum = [];
 
@@ -44,7 +47,20 @@ const MainCart = () => {
   const totalMrp = sumMrp[sumMrp.length - 1];
 
   const handleClickOrder = () => {
-    navigate("/checkout");
+    if(data.length>0)
+    {
+      navigate("/checkout");
+    }
+    else{
+      toast({
+        title: "Add item in the bag",
+        description: "Please add some products in bag first",
+        status: "error",
+        duration: 3000,
+        position:"top",
+        isClosable: true,
+      })
+    }
   };
 
   useEffect(() => {
@@ -61,7 +77,7 @@ const MainCart = () => {
               <SingleProduct
                 key={elem._id}
                 image={elem.url}
-                Prodquan={elem.quantity}
+                Prodquan={quantity}
                 Proname={elem.title.longTitle}
                 id={elem._id}
                 MRP={elem.price.mrp}
@@ -69,6 +85,7 @@ const MainCart = () => {
                 discount={elem.price.discount}
                 setData={setData}
                 getData={getData}
+                setQuantity={setQuantity}
               />
             ))}
           <Flex
