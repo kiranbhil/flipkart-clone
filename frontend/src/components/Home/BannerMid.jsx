@@ -19,7 +19,7 @@ const BannerMid = () => {
     <>
       <Component container>
         {imageURL.map((image) => (
-          <Grid item lg={4} md={4} sm={12} xs={12}>
+          <Grid key={image} item lg={4} md={4} sm={12} xs={12}>
             <img
               src={image}
               alt="images"

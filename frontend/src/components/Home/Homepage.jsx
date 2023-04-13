@@ -30,8 +30,6 @@ function Homepage() {
     getData()
   }, []);
 
-  console.log(data)
-
   return (
     <div>
         <BoxWrapper>

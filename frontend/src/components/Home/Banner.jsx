@@ -63,7 +63,7 @@ const Banner = () => {
       draggable={false}
     >
       {bannerData.map((banner) => (
-        <Image src={banner.url} alt="banner" />
+        <Image key={banner.id} src={banner.url} alt="banner" />
       ))}
     </Carousel>
   );

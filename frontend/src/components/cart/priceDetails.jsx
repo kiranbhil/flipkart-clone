@@ -3,8 +3,6 @@ import { Box, ChakraProvider, Divider, Flex, Text } from "@chakra-ui/react";
 const PriceDetails = ({ total, totalMrp }) => {
   const discount = totalMrp - total;
 
-  console.log(discount);
-
   return (
     <ChakraProvider>
       <Box
