@@ -22,7 +22,7 @@ export default function Review() {
   ];
 
   const [product, setProduct] = useState([]);
-  const [ids,setIds]=useState([])
+
 
   React.useEffect(() => {
     axios
@@ -36,8 +36,9 @@ export default function Review() {
   if (product.length > 0) {
     let intval = 0;
     sum = product.map((elem) => {
-      const val1 = elem.price.mrp;
-      return (intval = intval + val1);
+      const val1 = elem.price.cost;
+      const quant1=elem.quant
+      return (intval = intval + val1*quant1);
     });
   }
 
@@ -55,7 +56,7 @@ export default function Review() {
               primary={elem.title.longTitle}
               secondary={elem.title.shortTitle}
             />
-            <Typography variant="body2">₹{elem.price.mrp}</Typography>
+            <Typography variant="body2">₹{elem.price.cost*elem.quant}</Typography>
           </ListItem>
         ))}
 

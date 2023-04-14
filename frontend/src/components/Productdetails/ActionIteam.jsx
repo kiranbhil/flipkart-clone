@@ -33,7 +33,8 @@ const ActionItem = ({ product }) => {
             title: product.title,
             quantity: product.quantity,
             description: product.description,
-            tagline: product.tagline,}
+            tagline: product.tagline,quant:1
+        }
 
         axios.post("https://concerned-rose-bighorn-sheep.cyclic.app/addtocart",cartdata)
         .then(()=>navigate("/cart"))

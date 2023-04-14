@@ -25,6 +25,10 @@ import {
 import { json, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const getData=async()=>{
+  return await axios.get("https://concerned-rose-bighorn-sheep.cyclic.app/cartproduct")
+}
+
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -54,14 +58,11 @@ function getStepContent(step) {
 }
 
 const theme = createTheme();
-const getData=async()=>{
-  return await axios.get("https://concerned-rose-bighorn-sheep.cyclic.app/cartproduct")
-}
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [data, setData] = React.useState({});
-  const [deletedata,setDeletedata]=React.useState([])
+  const [deleteData,setDeleteData]=React.useState([])
   const [ids,setIds]=React.useState([])
   const navigate = useNavigate();
   const methods = useForm({
@@ -81,16 +82,14 @@ export default function Checkout() {
     },
   });
   React.useEffect(() => {
-    getData().then((res) => setDeletedata(res.data))
-    .then(()=>{
-      deletedata.map((el)=>{
-        ids.push(el._id)
-      })
-    })
+    getData().then((res) => setDeleteData(res.data))
     .catch((err) => console.log(err));
 }, []);
-
-
+React.useEffect(()=>{
+  deleteData.map((el)=>{
+    ids.push(el._id)
+  })
+},[ids])
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
@@ -99,19 +98,21 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
 
-  const deleteids=()=>{
-    ids.forEach((d)=>{
-      axios.delete(`https://concerned-rose-bighorn-sheep.cyclic.app/deletecartproduct/${d}`).then(()=>navigate("/"))
+  const goToHomePage = () => {
+    ids.map((id)=>{
+      axios.delete(`https://concerned-rose-bighorn-sheep.cyclic.app/deletecartproduct/${id}`)
     })
-  }
-  if (activeStep === steps.length) {
-     deleteids()
-  }
+    navigate("/");
+  };
 
+  if (activeStep === steps.length) {
+    setTimeout(goToHomePage, 5000);
+  }
 
   const onSubmit = (data) => {
     setData(data);
   };
+
 
   if (activeStep === steps.length - 1) {
     localStorage.setItem("userInfo", JSON.stringify(data));

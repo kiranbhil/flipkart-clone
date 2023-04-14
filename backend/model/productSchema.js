@@ -12,7 +12,7 @@ const productSchema=new mongoose.Schema({
     title:Object,
     quantity:Number,
     description:String,
-    tagline:String
+    tagline:String,
 })
 
 const Product = mongoose.model('product',productSchema);
