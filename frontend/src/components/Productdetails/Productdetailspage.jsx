@@ -30,11 +30,11 @@ const Productdetailspage = () => {
 
   const handlesubmit=(e)=>
   {
-    console.log(e.target.value)
+    // console.log(e.target.value)
   }
   const handlechange=(e)=>
   {
-    console.log(e.target.value)
+    // console.log(e.target.value)
   }
   return (
     <>
