@@ -18,7 +18,7 @@ const getData=async()=>{
 }
 const MainCart = () => {
   const [data, setData] = useState([]);
-  const [quantity,setQuantity]=useState(0)
+  const [quantity,setQuantity]=useState(1)
   const navigate = useNavigate();
   const toast = useToast();
 
@@ -67,7 +67,7 @@ const MainCart = () => {
       getData().then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
-
+console.log(data)
   return (
     <ChakraProvider>
       <Flex gap={4} padding="50px">

@@ -54,7 +54,7 @@ const SingleProduct = ({
     setQuantity(prev=>prev+1)
   }
   const Dec=()=>{
-      Prodquan===0?setQuantity(0):setQuantity(prev=>prev-1)
+      Prodquan===1?setQuantity(1):setQuantity(prev=>prev-1)
   }
   return (
     <ChakraProvider>
