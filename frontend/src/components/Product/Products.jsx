@@ -27,7 +27,6 @@ export default function BasicStatistics() {
       getData()
     }, []);
   
-    console.log(data)
 
     return (
       <Box maxW="full" mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>

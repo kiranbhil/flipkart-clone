@@ -99,13 +99,15 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
 
-
-  if (activeStep === steps.length) {
-     ids.forEach(d=>{
-      axios.delete(`https://concerned-rose-bighorn-sheep.cyclic.app/deletecartproduct/${d}`)
+  const deleteids=()=>{
+    ids.forEach((d)=>{
+      axios.delete(`https://concerned-rose-bighorn-sheep.cyclic.app/deletecartproduct/${d}`).then(()=>navigate("/"))
     })
-    setTimeout(navigate("/"),4000);
   }
+  if (activeStep === steps.length) {
+     deleteids()
+  }
+
 
   const onSubmit = (data) => {
     setData(data);

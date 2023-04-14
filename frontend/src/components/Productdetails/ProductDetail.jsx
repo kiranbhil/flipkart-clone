@@ -10,7 +10,7 @@ const ProductDetail = ({ product }) => {
     const handlechange=(e)=>
   {
     const value=e.target.value
-    console.log(value)
+   
     if(!value)
     {
         Alert("Please Select The size")

@@ -22,7 +22,7 @@ const ActionItem = ({ product }) => {
         //     action: 'https://securegw-stage.paytm.in/order/process',
         //     params: response    
         // }
-        console.log("Buy")
+        
     }
 
     const addItemToCart = () => {
@@ -36,7 +36,6 @@ const ActionItem = ({ product }) => {
             tagline: product.tagline,}
 
         axios.post("https://concerned-rose-bighorn-sheep.cyclic.app/addtocart",cartdata)
-        .then((res)=>console.log(res))
         .then(()=>navigate("/cart"))
         .catch((res)=>console.log(res))
     }
@@ -47,8 +46,7 @@ const ActionItem = ({ product }) => {
             <img  src={product.url} style={{width:"100%"}} />
             <br />
             <Center className='left_container_button'>
-            <Button onClick={addItemToCart}  style={{marginRight: 10,width:"46%", background: '#ff9f00',color: '#FFF'}} >Add to Cart</Button>
-            <Button  style={{background: '#fb641b',width:"46%",color: '#FFF'}} ><Flash /> Buy Now</Button>
+            <Button onClick={addItemToCart}  style={{marginRight: 10 ,marginTop:"20px",width:"46%", background: '#ff9f00',color: '#FFF'}} >Add to Cart</Button>
             </Center>
         </Box>
     )

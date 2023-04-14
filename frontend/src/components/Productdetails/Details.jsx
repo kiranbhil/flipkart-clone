@@ -36,7 +36,6 @@ const Details = () => {
     const { id } = useParams();
 
     const { loading, product } = useSelector(state => state.getProductDetails);
-console.log(product)
     const dispatch = useDispatch();
     
     useEffect(() => {

@@ -49,7 +49,7 @@ const Products = () => {
       getData()
     }, []);
   
-    console.log(data)
+    
   
     return (
       <Component>
