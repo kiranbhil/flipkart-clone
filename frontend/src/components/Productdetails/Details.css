@@ -12,15 +12,21 @@
    background:#FFFFFF;
    display:flex
 }
-.left_container_button
-{
-   display:flex
+#Details_of_single_product_container{
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
+   gap: 2%;
+   margin: 5%;
 }
 
+
 @media screen and (max-width: 800px) {
-   .Details_of_single_product_container
+   #Details_of_single_product_container
    {
        display:grid;
+       grid-template-columns: repeat(1,1fr);
+       gap: 1%;
+       margin: 2%;
    }
    .Details_of_single_product{
       width: 100%;

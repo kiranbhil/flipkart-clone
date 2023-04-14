@@ -44,15 +44,15 @@ const Details = () => {
     }, [dispatch, product, id, loading]);
 
     return (
-        <Center className='Details_of_single_product'>
+        <div className='Details_of_single_product'>
             {
                product && Object.keys(product).length &&
-              <Box className='Details_of_single_product_container' >
+              <div id='Details_of_single_product_container' >
                 <Box className='Details_of_single_product_container_left_child' mb={"30px"}  >
                  <ActionItem product={product} />
                 </Box>
                 <Box className='Details_of_single_product_container_right_child' ml={"20px"}width={"66%"} marginTop={"5px"} >
-                <Text marginTop={"15px"}  color={"gray"} fontWeight={"bold"} width={"80%"}>{product.title.shortTitle}</Text>
+                 <Text marginTop={"15px"}  color={"gray"} fontWeight={"bold"} width={"80%"}>{product.title.shortTitle}</Text>
                   <Text marginTop={"15px"} width={"80%"}>{product.title.longTitle}</Text>
                   <Heading marginTop={"15px"} style={{marginTop: 5, color: '#878787', fontSize: 14 }}>
                             <Box marginTop={"15px"} display={"flex"}>
@@ -67,9 +67,9 @@ const Details = () => {
                   </Box>
                   <ProductDetail product={product} />
                 </Box>
-              </Box>
+              </div>
             }
-        </Center>
+        </div>
     )
 }
 

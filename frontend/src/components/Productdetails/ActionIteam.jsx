@@ -16,17 +16,9 @@ const ActionItem = ({ product }) => {
     const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
 
-    const buyNow = async () => {
-        // let response = await payUsingPaytm({ amount: 500, email: 'codeforinterview01@gmail.com'});
-        // var information = {
-        //     action: 'https://securegw-stage.paytm.in/order/process',
-        //     params: response    
-        // }
-        
-    }
+  
 
     const addItemToCart = () => {
-        // dispatch(addToCart(id, quantity));
         const cartdata={url: product.url,
             detailurl: "Hello",
             price: product.price,
@@ -46,9 +38,7 @@ const ActionItem = ({ product }) => {
         <Box>
             <img  src={product.url} style={{width:"100%"}} />
             <br />
-            <Center className='left_container_button'>
-            <Button onClick={addItemToCart}  style={{marginRight: 10 ,marginTop:"20px",width:"46%", background: '#ff9f00',color: '#FFF'}} >Add to Cart</Button>
-            </Center>
+            <Center><Button onClick={addItemToCart}  style={{ padding:" 10px 60px", marginTop:"20px", background: '#ff9f00',color: '#FFF'}} >Add to Cart</Button></Center>
         </Box>
     )
 }
