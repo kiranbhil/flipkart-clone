@@ -1,7 +1,13 @@
 import { Box, ChakraProvider, Divider, Flex, Text } from "@chakra-ui/react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 
 const PriceDetails = ({ total, totalMrp }) => {
+
   const discount = totalMrp - total;
+
+
 
   return (
     <ChakraProvider>
@@ -45,7 +51,7 @@ const PriceDetails = ({ total, totalMrp }) => {
             fontWeight={"semibold"}
           >
             <Text>Total Amount</Text>
-            <Text>₹{totalMrp}</Text>
+            <Text>₹{total}</Text>
           </Flex>
           <Divider variant="dashed" borderColor="blackAlpha.500" />
 

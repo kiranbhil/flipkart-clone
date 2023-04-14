@@ -25,13 +25,12 @@ const SingleProduct = ({
   image,
   id,
   Proname,
-  Prodquan,
   MRP,
   cost,
   discount,
   setData,
   getData,
-  setQuantity
+  quant
 }) => {
   const toast = useToast();
 
@@ -51,10 +50,10 @@ const SingleProduct = ({
       .catch((err) => console.log(err));
   };
   const Inc=()=>{
-    setQuantity(prev=>prev+1)
+    axios.patch(`https://concerned-rose-bighorn-sheep.cyclic.app/updateCartProduct/${id}`,{quant:quant+1}).then(()=>getData().then((res)=>setData(res.data)))
   }
   const Dec=()=>{
-      Prodquan===0?setQuantity(0):setQuantity(prev=>prev-1)
+      quant===1?axios.patch(`https://concerned-rose-bighorn-sheep.cyclic.app/updateCartProduct/${id}`,{quant:1}).then(()=>getData().then((res)=>setData(res.data))):axios.patch(`https://concerned-rose-bighorn-sheep.cyclic.app/updateCartProduct/${id}`,{quant:quant-1}).then(()=>getData().then((res)=>setData(res.data)))
   }
   return (
     <ChakraProvider>
@@ -76,7 +75,7 @@ const SingleProduct = ({
               -
             </Button>
             <Button borderRadius={"full"} variant="outline" _hover={"none"}>
-              {Prodquan}
+              {quant}
             </Button>
             <Button onClick={Inc} borderRadius={"full"} variant="outline" _hover={"none"}>
               +
@@ -118,10 +117,10 @@ const SingleProduct = ({
             </Flex>
             <Flex gap={"3"} alignItems={"center"}>
               <Text fontSize={"sm"} as="del">
-                ₹{cost}
+                ₹{MRP}
               </Text>
               <Text fontSize={"lg"} fontWeight="medium">
-                ₹{MRP}
+                ₹{cost}
               </Text>
               <Tag bgColor={"transparent"} color="#388e3c">
                 <TagLabel>{discount}off</TagLabel>

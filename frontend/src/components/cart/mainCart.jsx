@@ -18,7 +18,6 @@ const getData=async()=>{
 }
 const MainCart = () => {
   const [data, setData] = useState([]);
-  const [quantity,setQuantity]=useState(0)
   const navigate = useNavigate();
   const toast = useToast();
 
@@ -28,7 +27,8 @@ const MainCart = () => {
     let intval = 0;
     sum = data.map((elem) => {
       const val1 = elem.price.cost;
-      return (intval = intval + val1);
+      const quant1=elem.quant
+      return (intval = intval + val1*quant1);
     });
   }
 
@@ -40,9 +40,11 @@ const MainCart = () => {
     let intval = 0;
     sumMrp = data.map((elem) => {
       const val1 = elem.price.mrp;
-      return (intval = intval + val1);
+      const quant1=elem.quant
+      return (intval = intval + val1*quant1);
     });
   }
+ 
 
   const totalMrp = sumMrp[sumMrp.length - 1];
 
@@ -77,7 +79,6 @@ const MainCart = () => {
               <SingleProduct
                 key={elem._id}
                 image={elem.url}
-                Prodquan={quantity}
                 Proname={elem.title.longTitle}
                 id={elem._id}
                 MRP={elem.price.mrp}
@@ -85,7 +86,7 @@ const MainCart = () => {
                 discount={elem.price.discount}
                 setData={setData}
                 getData={getData}
-                setQuantity={setQuantity}
+                quant={elem.quant}
               />
             ))}
           <Flex
